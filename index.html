@@ -9,6 +9,7 @@
   :root { --ink:#1b2630; --sub:#5a6772; --line:#d9e0e4; --accent:#0e5a5a; --tint:#f1f6f6; }
   * { box-sizing:border-box; }
   [hidden] { display:none !important; }
+  a { color:var(--accent); text-underline-offset:3px; }
   body { margin:0; background:#fff; color:var(--ink); font:16px/1.85 "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif; }
   main { max-width:820px; margin:0 auto; padding:56px 24px 72px; }
   header { border-bottom:2px solid var(--accent); padding-bottom:22px; margin-bottom:34px; }
@@ -55,6 +56,7 @@
     <h1>九項提問答覆</h1>
     <p class="meta split"><span>致　奈美德醫療器材股份有限公司　劉專員</span><span>2026 年 9 月 21 日</span><span id="byline" hidden>提案人　<span data-q="name"></span></span></p>
     <p class="meta">聯絡方式　<span data-q="contact"></span></p>
+    <p class="meta">網站設計初稿（可操作）：<a href="demo.html" style="word-break:break-all">https://biangdang007.github.io/wordpress-site-proposal-draft/demo.html</a></p>
     <p class="meta" id="online" hidden>線上版（手機可開）：<span data-q="link" style="white-space:normal;word-break:break-all"></span></p>
   </header>
 
@@ -117,7 +119,7 @@
 
   <div class="qa"><div class="no">6</div><div>
     <h3>WordPress 後台的內容更新方式，以及後續維護服務</h3>
-    <p>後台用 WordPress 內建的區塊編輯器，操作接近 Word：改文字、換圖片、新增產品、發最新消息，都不用碰程式。產品我會做成固定欄位的表單（品名、型號、規格、許可證字號、照片），同仁照欄位填，版面就會自動排成一致的樣子，換人編輯也不會跑版。</p>
+    <p>後台用 WordPress 內建的區塊編輯器，操作接近 Word：改文字、換圖片、新增產品、發最新消息，都不用碰程式。產品我會做成固定欄位的表單（品名、型號、規格、許可證字號、照片），同仁照欄位填，版面就會自動排成一致的樣子，換人編輯也不會跑版。設計初稿的產品頁有一個「後台示範」，可以實際改欄位看看。</p>
     <p>交付時有一次線上教學（可以錄影留存）和一份圖文操作手冊，管理員帳號在貴公司名下。</p>
     <p>上線後 <span data-q="warrantyDays"></span> 天內，功能異常免費修。之後兩種方式擇一：年度維護 NT$<span data-q="maintenance"></span>／年，包含 WordPress 與外掛更新、每月檢查備份、異常排除；或是不簽約，有事再單次報價。</p>
   </div></div>
@@ -135,7 +137,7 @@
 
   <div class="qa"><div class="no">9</div><div>
     <h3>若未來有繁體中文、日文或英文等多語言網站需求，是否可以擴充</h3>
-    <p>可以，而且建議現在就決定。我從第一天就用多語架構建置，網址會是 /zh-tw/，之後再加 /ja/、/en/。未來加語言時版型和功能都不用重做，剩下的工作只有把翻譯稿放上去。</p>
+    <p>可以，而且建議現在就決定。我從第一天就用多語架構建置，網址會是 /zh-tw/，之後再加 /ja/、/en/。未來加語言時版型和功能都不用重做，剩下的工作只有把翻譯稿放上去。設計初稿右上角可以切換三種語言，看實際效果。</p>
     <p>外掛用 Polylang（有免費版）或 WPML（CMS 方案 €99／年）<sup>4</sup>，到時看貴公司需不需要翻譯流程管理的功能再選。翻譯稿由貴公司提供；需要我代找譯者的話另計。</p>
   </div></div>
 
@@ -161,7 +163,7 @@
   <p>缺哪一項都沒關係，會議時一起討論怎麼補。</p>
 
   <h2>關於我</h2>
-  <p>我過去做的多是企業內部的介面，不方便公開，所以用這份答覆書讓您判斷我的程度。想用線上會議或電話談也可以，時間我配合您。</p>
+  <p>我過去做的多是企業內部的介面，不方便公開，所以另外做了一份貴公司網站的設計初稿讓您判斷程度，網址在本頁最上方。可以切換中、日、英文，看產品頁，試後台編輯。初稿是靜態網頁，內容都是示意，用來確認版型和操作方式；正式網站會用 WordPress 建置。想用線上會議或電話談也可以，時間我配合您。</p>
 
   <footer>
     資料來源（2026 年 9 月 21 日查閱）
