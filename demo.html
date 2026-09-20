@@ -66,6 +66,7 @@
   .hero .wrap { display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; padding-top:84px; padding-bottom:72px; }
   .hero h1 { font-size:clamp(34px,5vw,58px); line-height:1.32; margin:18px 0 24px; text-wrap:balance; }
   h2, .page-head p, .closing p { text-wrap:balance; }
+  html[lang=zh-Hant] .hero h1 { word-break:keep-all; overflow-wrap:anywhere; }
   .hero p.lead { max-width:30em; color:var(--sub); margin:0 0 34px; }
   .hero .cta { display:flex; flex-wrap:wrap; gap:12px; }
   .dial { width:100%; max-width:420px; justify-self:end; color:var(--teal); }
@@ -137,6 +138,7 @@
 
   /* 後台示範 */
   .admin { position:fixed; z-index:40; right:0; top:0; bottom:0; width:min(400px,100%); background:#fff; border-left:1px solid var(--ink); padding:26px 24px; overflow:auto; box-shadow:-18px 0 40px rgba(21,34,43,.12); }
+  .admin:focus { outline:none; }
   .admin h2 { font-size:21px; margin:6px 0 8px; }
   .admin label { display:block; font-size:13.5px; color:var(--sub); margin-top:14px; }
   .admin .row { display:flex; gap:10px; margin-top:22px; }
@@ -149,7 +151,7 @@
     .wrap { padding:0 20px; }
     .top .wrap { flex-wrap:wrap; gap:0 16px; padding-top:10px; }
     nav { order:3; width:100%; overflow-x:auto; gap:12px; justify-content:space-between; padding:4px 0 8px; scrollbar-width:none; }
-    nav a { font-size:14px; }
+    nav a { font-size:14px; } html[lang=ja] nav a { font-size:13px; }
     nav::-webkit-scrollbar { display:none; }
     .brand span { font-size:17px; }
     .hero .wrap { grid-template-columns:1fr; padding-top:48px; padding-bottom:48px; }
@@ -292,7 +294,7 @@
   </div></div>
 </main>
 
-<aside class="admin" id="admin" hidden aria-labelledby="adminTitle">
+<aside class="admin" id="admin" hidden aria-labelledby="adminTitle" tabindex="-1">
   <p class="mono">WordPress · Demo</p>
   <h2 id="adminTitle" data-i18n="adminTitle"></h2>
   <p class="hint" data-i18n="adminHint"></p>
@@ -310,9 +312,9 @@
 <script>
 const I18N = {
   'zh-Hant': {
-    draftTag:'設計初稿', draftText:'內容皆為示意，這不是奈美德醫療器材的官方網站。', draftBack:'回到答覆書',
+    navLabel:'主選單', draftTag:'設計初稿', draftText:'內容皆為示意，這不是奈美德醫療器材的官方網站。', draftBack:'回到答覆書',
     navHome:'首頁', navProducts:'產品介紹', navAbout:'關於我們', navNews:'最新消息', navContact:'聯絡我們',
-    heroKicker:'台灣市場 · 醫療器材', heroTitle:'把可靠的醫療器材，帶到台灣的第一線。',
+    heroKicker:'台灣市場 · 醫療器材', heroTitle:'醫療器材，在台灣的服務窗口。',
     heroLead:'這是首頁的設計初稿。標語和圖像都是示意，正式內容由貴公司提供。右上角可以切換日文和英文，三個語言共用同一套版型。',
     heroCta1:'看產品', heroCta2:'聯絡我們', viewAll:'看全部',
     homeProducts:'產品系列', seriesA:'系列 A', seriesB:'系列 B', seriesC:'系列 C',
@@ -329,7 +331,7 @@ const I18N = {
     aboutLead:'這一頁的三個區塊先用說明文字佔位，告訴貴公司每一區建議準備什麼內容。',
     about1:'公司簡介', about1Text:'約 150 字。公司從哪裡來、在台灣提供什麼、由誰負責。有海外總公司的話，放一段總公司介紹和連結。',
     about2:'沿革', about2Text:'以「年份 — 事件」條列。台灣公司剛成立的話，可以先放總公司的沿革，再接台灣的里程碑。',
-    about3:'品質與法規', about3Text:'醫療器材商許可執照字號、品質系統認證。只放證書上有的內容，附證書掃描檔。',
+    about3:'品質與法規', about3Text:'醫療器材商許可執照字號、品質管理系統認證。只放證書上有的內容，附證書掃描檔。',
     newsLead:'在後台新增一篇文章，這裡就會多一則。以下三則是示意。',
     n1:'示意：官方網站上線', n2:'示意：參展資訊', n3:'示意：產品取得許可證公告',
     contactLead:'這是示範頁，表單不會真的送出。', fName:'姓名', fCompany:'公司／單位', fEmail:'Email', fPhone:'電話', fMessage:'想詢問的內容',
@@ -338,10 +340,10 @@ const I18N = {
     footNote:'2026 設計初稿｜提案用示意，非正式網站', footPrivacy:'隱私權政策（上線時提供）', sample:'示意產品'
   },
   ja: {
-    draftTag:'デザイン初稿', draftText:'内容はすべてサンプルです。奈美德醫療器材の公式サイトではありません。', draftBack:'回答書へ戻る',
+    navLabel:'メインメニュー', draftTag:'デザイン初稿', draftText:'内容はすべてサンプルです。奈美德醫療器材の公式サイトではありません。', draftBack:'回答書へ戻る',
     navHome:'ホーム', navProducts:'製品情報', navAbout:'会社情報', navNews:'お知らせ', navContact:'お問い合わせ',
-    heroKicker:'台湾市場 · 医療機器', heroTitle:'信頼できる医療機器を、台湾の現場へ。',
-    heroLead:'トップページのデザイン初稿です。キャッチコピーと図はサンプルで、正式な内容は貴社よりご提供いただきます。右上で言語を切り替えられ、三言語とも同じレイアウトを共有します。',
+    heroKicker:'台湾市場 · 医療機器', heroTitle:'医療機器の、台湾におけるサービス窓口。',
+    heroLead:'トップページのデザイン初稿です。キャッチコピーと図はサンプルで、正式な内容は貴社よりご提供いただきます。右上で言語を切り替えられ、3つの言語で同じレイアウトをご利用いただけます。',
     heroCta1:'製品を見る', heroCta2:'お問い合わせ', viewAll:'すべて見る',
     homeProducts:'製品シリーズ', seriesA:'シリーズ A', seriesB:'シリーズ B', seriesC:'シリーズ C',
     seriesNote:'ここに一文：対象と使用場面を記載します。効能は書きません。',
@@ -350,14 +352,14 @@ const I18N = {
     productsLead:'すべての製品を同じ項目で表示します。管理画面で項目を入力するだけで、統一されたレイアウトになります。',
     filterAll:'すべて', sClassShort:'クラス', more:'仕様を見る',
     backToList:'← 製品一覧へ', specSample:'サンプル値',
-    sName:'製品名', sModel:'型番', sClass:'クラス分類', sLicence:'許可証番号', sDims:'寸法', sWeight:'重量', sPower:'電源',
+    sName:'製品名', sModel:'型番', sClass:'クラス分類', sLicence:'許可証番号（台湾）', sDims:'寸法', sWeight:'重量', sPower:'電源',
     licEmpty:'許可証の記載どおりに入力', ifu:'添付文書 PDF（サンプル）', adminOpen:'管理画面デモ：このページを編集',
     detailNote:'このページの項目は、承認済み添付文書の項目に対応しています。掲載内容の適法性は、貴社の薬事ご担当者にご確認いただきます。',
     adminTitle:'管理画面の編集デモ', adminHint:'下の項目を書き換えると、ページがすぐに変わります。実際の WordPress 管理画面でも同じように項目を入力するだけで、コードは不要です。', adminClose:'完了', adminReset:'元に戻す',
     aboutLead:'三つのブロックには、ご準備いただきたい内容の説明を仮に入れています。',
     about1:'会社概要', about1Text:'150 字程度。会社の成り立ち、台湾で提供するもの、責任者。海外本社がある場合は、本社の紹介とリンクを添えます。',
     about2:'沿革', about2Text:'「年 — 出来事」の形で並べます。台湾法人が設立間もない場合は、本社の沿革に続けて台湾での歩みを記載します。',
-    about3:'品質・法規', about3Text:'医療機器商の許可証番号、品質システム認証。証書に記載のある内容のみ掲載し、証書のスキャンを添付します。',
+    about3:'品質・法規', about3Text:'台湾の医療機器販売業許可証の番号、品質マネジメントシステム認証。証書に記載のある内容のみ掲載し、証書のスキャンを添付します。',
     newsLead:'管理画面で記事を一件追加すると、ここに一件増えます。以下の三件はサンプルです。',
     n1:'サンプル：公式サイトを公開しました', n2:'サンプル：展示会出展のお知らせ', n3:'サンプル：製品許可証取得のお知らせ',
     contactLead:'デモページのため、フォームは実際には送信されません。', fName:'お名前', fCompany:'会社名・部署', fEmail:'メールアドレス', fPhone:'電話番号', fMessage:'お問い合わせ内容',
@@ -366,16 +368,16 @@ const I18N = {
     footNote:'2026 デザイン初稿｜提案用サンプル、正式サイトではありません', footPrivacy:'プライバシーポリシー（公開時に掲載）', sample:'サンプル製品'
   },
   en: {
-    draftTag:'Design draft', draftText:'All content is placeholder. This is not the official website of the company.', draftBack:'Back to the answer sheet',
+    navLabel:'Main menu', draftTag:'Design draft', draftText:'All content is placeholder. This is not the official website of 奈美德醫療器材.', draftBack:'Back to the proposal answers',
     navHome:'Home', navProducts:'Products', navAbout:'About', navNews:'News', navContact:'Contact',
-    heroKicker:'Taiwan market · Medical devices', heroTitle:'Dependable medical devices, brought to the front line in Taiwan.',
+    heroKicker:'Taiwan market · Medical devices', heroTitle:'Your point of contact for medical devices in Taiwan.',
     heroLead:'A first draft of the home page. The tagline and graphics are placeholders; final content comes from your team. Switch languages at the top right. All three share one layout.',
     heroCta1:'View products', heroCta2:'Contact us', viewAll:'View all',
     homeProducts:'Product series', seriesA:'Series A', seriesB:'Series B', seriesC:'Series C',
     seriesNote:'One line goes here: who it is for and where it is used. No efficacy claims.',
     homeAbout:'About the company', homeAboutText:'The first two or three sentences of the company profile go here, so a first-time visitor knows who you are and what you offer in Taiwan. The full text lives on the About page.', homeAboutLink:'Read the profile',
     closingTitle:'Questions about products or partnership?', closingText:'Form submissions go to the mailbox your team chooses.',
-    productsLead:'Every product uses the same set of fields. Staff fill in the fields in the admin, and the page lays itself out consistently.',
+    productsLead:'Every product uses the same set of fields. Staff fill them in through the admin, and the page lays itself out consistently.',
     filterAll:'All', sClassShort:'Class', more:'View specs',
     backToList:'← Back to products', specSample:'sample values',
     sName:'Name', sModel:'Model', sClass:'Device class', sLicence:'Licence no.', sDims:'Dimensions', sWeight:'Weight', sPower:'Power',
@@ -385,7 +387,7 @@ const I18N = {
     aboutLead:'The three blocks hold guidance text for now, describing what to prepare for each.',
     about1:'Company profile', about1Text:'About 150 characters. Where the company comes from, what it offers in Taiwan, who is responsible. If there is an overseas head office, add a short introduction and a link.',
     about2:'History', about2Text:'List as "year — event". If the Taiwan entity is new, start with the head office history and continue with Taiwan milestones.',
-    about3:'Quality and regulation', about3Text:'Medical device dealer licence number and quality system certifications. Only what appears on the certificates, with scans attached.',
+    about3:'Quality and regulation', about3Text:'Medical device distributor licence number and quality management system (QMS) certifications. Only what appears on the certificates, with scans attached.',
     newsLead:'Add a post in the admin and it appears here. The three items below are samples.',
     n1:'Sample: official website launched', n2:'Sample: exhibition notice', n3:'Sample: product licence granted',
     contactLead:'This is a demo page. The form does not actually send.', fName:'Name', fCompany:'Company / department', fEmail:'Email', fPhone:'Phone', fMessage:'Your message',
@@ -414,11 +416,12 @@ const t = k => I18N[lang][k] ?? k;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const art = i => `<svg viewBox="0 0 200 180" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">${SHAPES[i]}</svg>`;
 const nameOf = p => p.name[lang] || `${t('sample')} ${p.id}`;
-const setAdmin = open => { $('#admin').hidden = !open; document.body.classList.toggle('editing', open); if (open) { fillAdmin(); $('#detail h1').scrollIntoView({block:'start'}); } };
+const setAdmin = open => { const wasOpen = !$('#admin').hidden; $('#admin').hidden = !open; document.body.classList.toggle('editing', open); if (open) { fillAdmin(); $('#detail h1').scrollIntoView({block:'start'}); $('#admin').focus({preventScroll:true}); } else if (wasOpen) $('#adminOpen')?.focus({preventScroll:true}); };
 const reset = () => { products = DEFAULTS.map(p => ({...p, lic:'', name:{}})); };
 
 function applyI18n() {
   document.documentElement.lang = lang;
+  $('nav').setAttribute('aria-label', t('navLabel'));
   $$('[data-i18n]').forEach(el => el.textContent = t(el.dataset.i18n));
   $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
   $$('[data-news]').forEach(ul => ul.innerHTML = NEWS.map(([d, k]) => `<li><time>${d}</time><span>${esc(t(k))}</span></li>`).join(''));
